@@ -1,0 +1,38 @@
+[project]
+name = "tagline"
+description = "Audio tags, at a glance!"
+version = "0.1.0"
+requires-python = ">=3.14"
+readme = "README.md"
+authors = [{ name = "June", email = "junapur@proton.me" }]
+dependencies = []
+
+[project.scripts]
+tagline = "tagline:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23, <0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups] # TODO: add rumdl
+nox = [
+    "nox-uv>=0.8.0",
+]
+type-check = [
+    "pyrefly>=1.3.2",
+]
+lint = [
+    "ruff>=0.16.10",
+]
+
+[tool.uv]
+default-groups = "all"
+
+[tool.pyrefly]
+project-includes = ["**/*.py*"]
+preset = "strict"
+infer-with-first-use = false
+
+[tool.ruff.lint] # TODO: configure this
+# select = []
+# ignore = []
