@@ -19,7 +19,7 @@ tagline = "tagline:main"
 requires = ["uv_build>=0.12.23, <0.13.0"]
 build-backend = "uv_build"
 
-[dependency-groups] # TODO: add rumdl
+[dependency-groups]
 nox = [
     "nox-uv>=0.8.0",
 ]
@@ -38,6 +38,60 @@ project-includes = ["**/*.py*"]
 preset = "strict"
 infer-with-first-use = false
 
-[tool.ruff.lint] # TODO: configure this
-# select = []
-# ignore = []
+[tool.ruff.lint]
+select = [
+    "ASYNC",   # flake8-async
+    "S",       # flake8-bandit
+    "BLE",     # flake8-blind-except
+    "FBT",     # flake8-boolean-trap
+    "B",       # flake8-bugbear
+    "A",       # flake8-builtins
+    "C4",      # flake8-comprehensions
+    "DTZ",     # flake8-datetimez
+    "T10",     # flake8-debugger
+    "EM",      # flake8-errmsg
+    "FA",      # flake8-future-annotations
+    "ISC",     # flake8-implicit-str-concat
+    "ICN",     # flake8-import-conventions
+    "LOG",     # flake8-logging
+    "G",       # flake8-logging-format
+    "PIE",     # flake8-pie
+    "PYI",     # flake8-pyi
+    "PT",      # flake8-pytest-style
+    "RSE",     # flake8-raise
+    "RET",     # flake8-return
+    "SLF",     # flake8-self
+    "SIM",     # flake8-simplify
+    "TID",     # flake8-tidy-imports
+    "PTH",     # flake8-use-pathlib
+    "FLY",     # flynt
+    "I",       # isort
+    "N",       # pep8-naming
+    "PERF101", # perflint (unnecessary-list-cast)
+    "PERF102", # perflint (incorrect-dict-iterator)
+    "PERF402", # perflint (manual-list-copy)
+    "E",       # pycodestyle (errors)
+    "W605",    # pycodestyle (invalid-escape-sequence)
+    "F",       # pyflakes
+    "PLC",     # pylint (convention)
+    "PLE",     # pylint (errors)
+    "PLR",     # pylint (refactor)
+    "PLW",     # pylint (warnings)
+    "UP",      # pyupgrade
+    "FURB",    # refurb
+    "RUF",     # ruff rules
+    "TRY",     # tryceratops
+]
+
+ignore = [
+    # prefer rule codes over names in this file:
+    "RUF201",
+    # too-many-* rules:
+    "PLR09",
+    "PLR1702",
+    # conflicts with ruff's formatter:
+    "E111",
+    "E114",
+    "E117",
+    "E501",
+]
